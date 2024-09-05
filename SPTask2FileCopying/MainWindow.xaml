@@ -1,0 +1,108 @@
+﻿<Window x:Class="SPTask2FileCopying.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SPTask2FileCopying"
+        mc:Ignorable="d"
+        
+        Title="Copy File App"
+        Height="300"
+        Width="700"
+        x:Name="MainWin"
+        ResizeMode="NoResize"
+        FontWeight="SemiBold"
+        FontSize="16" 
+        Closing="MainWin_Closing"
+        
+        Background="YellowGreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="From"
+                       Margin="20 5 10 5"
+                       Width="40"/>
+
+            <TextBox Width="500"
+                     Name="FromTB"
+                     Height="36"
+                     Margin="10 30 10 30"/>
+
+            <Button Content="File..."
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="10 5 5 5"
+                    Height="30"
+                    Foreground="Beige"
+                    Background="DarkRed"
+                    Name="FromBtn"
+                    Width="80"
+                    Click="FromBtn_Click"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal">
+
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="To"
+                       Margin="20 5 10 5"
+                       Width="40"/>
+
+            <TextBox Width="500"
+                     Name="ToTB"
+                     Height="36"
+                     Margin="10 30 10 30"/>
+
+            <Button Content="File..."
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="10 5 5 5"
+                    Foreground="Beige"
+                    Background="DarkRed"
+                    Height="30"
+                    Name="ToBtn"
+                    Width="80"
+                    Click="ToBtn_Click"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" 
+                    Orientation="Horizontal">
+
+            <ProgressBar Name="ProgressControl"
+                         Width="560"
+                         Height="36"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Minimum="{Binding Min, UpdateSourceTrigger=PropertyChanged}"
+                         Maximum="{Binding Max, UpdateSourceTrigger=PropertyChanged}"
+                         Value="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="20 30 10 30"
+                         Foreground="DarkBlue"/>
+
+            <Button Content="Copy"
+                    Name="CopyBtn"
+                    Click="CopyBtn_Click"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="Beige"
+                    Background="DarkRed"
+                    Margin="10 5 5 5"
+                    Height="30"
+                    Width="80"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
